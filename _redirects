@@ -1,4 +1,5 @@
 /api/classroom/connect /.netlify/functions/classroom-connect 200
 /api/classroom /.netlify/functions/classroom-api 200
 /google-classroom/callback /.netlify/functions/classroom-callback 200
+/api/auth/finalize https://gzdixxmcptlymzjmjqat.supabase.co/functions/v1/edulink-self-signup 200
 /* /index.html 200
