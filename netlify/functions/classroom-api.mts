@@ -31,7 +31,7 @@ export default async (req: Request) => {
     if (action === "status") {
       const token = await loadGoogleToken(user.id);
       const mappings = await loadMappings(user.id);
-      return Response.json({ connected: !!token, connectedAt: token?.connected_at || null, email: token?.email || null, mappings });
+      return Response.json({ connected: !!token, connectedAt: token?.connected_at || null, email: token?.email || null, scope: token?.scope || null, mappings });
     }
 
     if (action === "disconnect") {
@@ -42,8 +42,19 @@ export default async (req: Request) => {
     }
 
     if (action === "courses") {
-      const data = await classroomFetch(user.id, "/courses?teacherId=me&pageSize=100");
-      const courses = (data.courses || []).map((c: any) => ({ id: c.id, name: c.name, section: c.section, room: c.room, courseState: c.courseState, alternateLink: c.alternateLink }));
+      let data: any;
+      try {
+        data = await classroomFetch(user.id, "/courses?pageSize=100");
+      } catch {
+        data = await classroomFetch(user.id, "/courses?teacherId=me&pageSize=100");
+      }
+      let courses = (data.courses || []).map((c: any) => ({ id: c.id, name: c.name, section: c.section, room: c.room, courseState: c.courseState, alternateLink: c.alternateLink, ownerId: c.ownerId }));
+      if (!courses.length) {
+        try {
+          const studentData = await classroomFetch(user.id, "/courses?studentId=me&pageSize=100");
+          courses = (studentData.courses || []).map((c: any) => ({ id: c.id, name: c.name, section: c.section, room: c.room, courseState: c.courseState, alternateLink: c.alternateLink, ownerId: c.ownerId }));
+        } catch {}
+      }
       return Response.json({ courses, mappings: await loadMappings(user.id) });
     }
 
