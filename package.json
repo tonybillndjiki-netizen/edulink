@@ -1,0 +1,9 @@
+{
+  "name": "edulink",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22"},
+  "dependencies": {
+    "@netlify/blobs": "latest"
+  }
+}
