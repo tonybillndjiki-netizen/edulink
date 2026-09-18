@@ -14,7 +14,7 @@ const features = [
   [Building2, "Multi-établissements", "Isolation stricte des données par organisation, campus et rôles configurables."],
   [GraduationCap, "Pilotage pédagogique", "Formations, promotions, classes, UE, UV, matières, cours et progression."],
   [BookOpenCheck, "Évaluations & notes", "Quiz, devoirs, CC, présences, compétences, carnet de notes et bulletins."],
-  [BrainCircuit, "SCOLARIA AI", "Architecture prévue pour assister enseignants et étudiants avec validation humaine."],
+  [BrainCircuit, "SCOLARYS AI", "Architecture prévue pour assister enseignants et étudiants avec validation humaine."],
   [BarChart3, "Analytics", "Indicateurs pédagogiques et signaux de vigilance au service des équipes."],
   [ShieldCheck, "Sécurité native", "Authentification Supabase, RLS PostgreSQL, RBAC et journal d'audit."],
 ] as const;
@@ -25,7 +25,7 @@ export default function HomePage() {
       <header className="mx-auto flex max-w-7xl items-center justify-between px-5 py-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3 font-black tracking-tight">
           <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#173f5f] text-white">S</span>
-          <span>SCOLARIA</span>
+          <span>SCOLARYS</span>
         </Link>
         <div className="flex items-center gap-2">
           <Link className="btn-secondary" href="/login">Connexion</Link>
@@ -40,7 +40,7 @@ export default function HomePage() {
             Toute votre pédagogie. Un seul environnement.
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-[#68758a]">
-            SCOLARIA centralise l'organisation, l'enseignement, l'évaluation, la présence,
+            SCOLARYS centralise l'organisation, l'enseignement, l'évaluation, la présence,
             les notes, les compétences, les bulletins et le pilotage pédagogique.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -105,7 +105,7 @@ export default function HomePage() {
       </section>
 
       <footer className="border-t border-[#e5eaf0] px-5 py-10 text-center text-sm text-[#748096]">
-        SCOLARIA — Plateforme intelligente de pilotage pédagogique.
+        SCOLARYS — Plateforme intelligente de pilotage pédagogique.
       </footer>
     </main>
   );
