@@ -52,7 +52,7 @@ export default function LoginPage() {
     <main className="grid min-h-screen place-items-center px-5 py-10">
       <section className="surface grid w-full max-w-5xl overflow-hidden lg:grid-cols-[.9fr_1.1fr]">
         <div className="bg-[#173f5f] p-8 text-white sm:p-12">
-          <Link href="/" className="text-xl font-black">SCOLARIA</Link>
+          <Link href="/" className="text-xl font-black">SCOLARYS</Link>
           <h1 className="mt-16 text-4xl font-black tracking-[-.04em]">Pilotez votre pédagogie avec une donnée fiable.</h1>
           <p className="mt-5 leading-7 text-white/75">Connexion sécurisée à votre environnement établissement.</p>
         </div>
@@ -86,7 +86,7 @@ export default function LoginPage() {
           </div>
           {message && <p className="mt-5 rounded-xl bg-[#f2f5f8] p-3 text-sm text-[#4f5d73]">{message}</p>}
           <p className="mt-8 text-sm text-[#68758a]">
-            Nouvel établissement ? <Link className="font-bold text-[#173f5f]" href="/signup">Créer un espace SCOLARIA</Link>
+            Nouvel établissement ? <Link className="font-bold text-[#173f5f]" href="/signup">Créer un espace SCOLARYS</Link>
           </p>
         </form>
       </section>
