@@ -256,8 +256,11 @@ export function StudentImportWizard({
         const sheet = workbook.worksheets[0];
         if (!sheet) throw new Error("Le classeur Excel ne contient aucune feuille.");
 
-        const headerValues = Array.isArray(sheet.getRow(1).values) ? sheet.getRow(1).values.slice(1) : [];
-        const parsedHeaders = headerValues.map(toText).map((value) => value.trim()).filter(Boolean);
+        const firstRowValues = sheet.getRow(1).values;
+        const headerValues: unknown[] = Array.isArray(firstRowValues) ? firstRowValues.slice(1) : [];
+        const parsedHeaders: string[] = headerValues
+          .map((value: unknown) => toText(value).trim())
+          .filter((value: string) => Boolean(value));
         const parsedRows: RawRow[] = [];
         for (let i = 2; i <= sheet.rowCount; i += 1) {
           const row = sheet.getRow(i);
