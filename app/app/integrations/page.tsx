@@ -24,7 +24,7 @@ export default function IntegrationsPage() {
       <span className="badge">Services externes</span>
       <h1 className="mt-3 text-3xl font-black">Intégrations</h1>
       <p className="mt-2 max-w-3xl text-sm leading-6 text-[#68758a]">
-        SCOLARIA n’affiche jamais une connexion externe comme active sans configuration OAuth réelle.
+        SCOLARYS n’affiche jamais une connexion externe comme active sans configuration OAuth réelle.
       </p>
       <div className="mt-7 grid gap-4 lg:grid-cols-3">
         {integrations.map(({ name, description, icon: Icon }) => (
