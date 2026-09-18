@@ -313,7 +313,7 @@ export function StudentImportWizard({
     const href = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = href;
-    anchor.download = "modele_import_etudiants_scolaria.csv";
+    anchor.download = "modele_import_etudiants_scolarys.csv";
     anchor.click();
     URL.revokeObjectURL(href);
   }
