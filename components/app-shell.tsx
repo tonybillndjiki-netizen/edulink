@@ -50,7 +50,7 @@ export function AppShell({
         <div className="border-b border-white/10 p-6">
           <Link href="/app" className="flex items-center gap-3 font-black tracking-tight">
             <span className="grid h-10 w-10 place-items-center rounded-xl bg-white text-[#173f5f]">S</span>
-            SCOLARIA
+            SCOLARYS
           </Link>
           <div className="mt-5 text-xs font-bold uppercase tracking-[.12em] text-white/45">Établissement</div>
           <div className="mt-1 text-sm font-bold">{organizationName}</div>
@@ -83,7 +83,7 @@ export function AppShell({
       <div className="min-w-0">
         <header className="sticky top-0 z-30 border-b border-[#e5eaf0] bg-white/95 px-4 py-3 backdrop-blur lg:hidden">
           <div className="flex items-center justify-between gap-3">
-            <Link href="/app" className="font-black text-[#173f5f]">SCOLARIA</Link>
+            <Link href="/app" className="font-black text-[#173f5f]">SCOLARYS</Link>
             <button onClick={signOut} aria-label="Se déconnecter" className="rounded-lg border border-[#e5eaf0] p-2"><LogOut size={18} /></button>
           </div>
           <nav className="mt-3 flex gap-2 overflow-x-auto pb-1">
