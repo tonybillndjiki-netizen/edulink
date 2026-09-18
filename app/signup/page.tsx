@@ -43,7 +43,7 @@ export default function SignupPage() {
   return (
     <main className="grid min-h-screen place-items-center px-5 py-10">
       <form action={signUp} className="surface w-full max-w-xl p-8 sm:p-10">
-        <Link href="/" className="font-black text-[#173f5f]">SCOLARIA</Link>
+        <Link href="/" className="font-black text-[#173f5f]">SCOLARYS</Link>
         <span className="badge mt-8">Nouvel établissement</span>
         <h1 className="mt-4 text-3xl font-black">Créer votre compte administrateur</h1>
         <p className="mt-2 text-sm leading-6 text-[#68758a]">Après activation du compte, l’assistant vous permettra de créer votre organisation et son environnement isolé.</p>
