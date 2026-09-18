@@ -45,7 +45,7 @@ export function OnboardingForm() {
       <span className="badge">Étape 1 / 8</span>
       <h1 className="mt-4 text-3xl font-black">Identité de l’établissement</h1>
       <p className="mt-2 text-sm leading-6 text-[#68758a]">
-        Cette organisation constitue la frontière de sécurité de vos données dans SCOLARIA.
+        Cette organisation constitue la frontière de sécurité de vos données dans SCOLARYS.
       </p>
       <div className="mt-8 grid gap-5 sm:grid-cols-2">
         <div className="field sm:col-span-2">
@@ -69,7 +69,7 @@ export function OnboardingForm() {
         <div className="field sm:col-span-2">
           <label htmlFor="slug">Identifiant d’espace facultatif</label>
           <input id="slug" name="slug" placeholder="institut-horizon" pattern="[a-z0-9]+(?:-[a-z0-9]+)*" />
-          <small className="text-[#748096]">Prépare les futures adresses de type ecole.scolaria.app.</small>
+          <small className="text-[#748096]">Prépare les futures adresses de type ecole.scolarys.app.</small>
         </div>
       </div>
       <button disabled={busy} className="btn-primary mt-7">{busy ? "Création…" : "Créer mon établissement"}</button>
