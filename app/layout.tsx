@@ -3,8 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "SCOLARIA",
-    template: "%s · SCOLARIA",
+    default: "SCOLARYS",
+    template: "%s · SCOLARYS",
   },
   description:
     "Plateforme intelligente de pilotage pédagogique pour établissements d'enseignement.",
