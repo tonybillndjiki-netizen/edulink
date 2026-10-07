@@ -1,0 +1,11 @@
+// Test-only HTTP adapter. Production uses the Netlify function and Netlify Blobs.
+import http from 'node:http';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {createHandler} from '../src/live-core.mjs';
+const data=new Map(),etags=new Map();const store={get:async k=>data.has(k)?structuredClone(data.get(k)):null,getWithMetadata:async k=>data.has(k)?{data:structuredClone(data.get(k)),etag:String(etags.get(k)||1),metadata:{}}:null,setJSON:async(k,v,options={})=>{if(options.onlyIfNew&&data.has(k)||options.onlyIfMatch&&options.onlyIfMatch!==String(etags.get(k)||1))return {modified:false};data.set(k,structuredClone(v));const revision=(etags.get(k)||1)+1;etags.set(k,revision);return {modified:true,etag:String(revision)};},list:async({prefix})=>({blobs:[...data.keys()].filter(k=>k.startsWith(prefix)).map(key=>({key}))})};
+const pin=process.env.QUIZ_TEST_PIN;if(!pin)throw Error('Set QUIZ_TEST_PIN for the test server.');
+const handler=createHandler({getStore:()=>store,teacherPin:()=>pin});
+const root=path.resolve(new URL('../public/',import.meta.url).pathname),types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.txt':'text/plain','.xlsx':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','.png':'image/png'};
+const server=http.createServer(async(req,res)=>{try{const url=new URL(req.url,'http://127.0.0.1');if(url.pathname==='/api/live'){const chunks=[];for await(const chunk of req)chunks.push(chunk);const response=await handler(new Request(url,{method:req.method,headers:req.headers,body:req.method==='GET'?undefined:Buffer.concat(chunks)}));res.writeHead(response.status,Object.fromEntries(response.headers));res.end(Buffer.from(await response.arrayBuffer()));return;}const pathname=decodeURIComponent(url.pathname==='/'?'/index.html':url.pathname),target=path.resolve(root,'.'+pathname);if(!target.startsWith(root+path.sep)){res.writeHead(403);res.end();return;}const bytes=await fs.readFile(target);res.writeHead(200,{'Content-Type':types[path.extname(target)]||'application/octet-stream'});res.end(bytes);}catch{res.writeHead(404);res.end('Not found');}});
+server.listen(Number(process.env.QUIZ_TEST_PORT||4173),'127.0.0.1',()=>console.log('Test server http://127.0.0.1:'+server.address().port));

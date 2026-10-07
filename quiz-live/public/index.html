@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Edulink Quiz — Session étudiant</title>
+<style>
+:root{--bg:#07111f;--card:#0f1b2e;--card2:#111f35;--line:#233653;--text:#f7f9fc;--muted:#91a4bd;--accent:#8b5cf6;--cyan:#13c7d9;--ok:#22c55e;--bad:#ef4444;--warn:#f59e0b}*{box-sizing:border-box}html{background:var(--bg)}body{margin:0;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 10% 0%,rgba(124,58,237,.28),transparent 30%),radial-gradient(circle at 100% 15%,rgba(6,182,212,.18),transparent 28%),linear-gradient(145deg,#050a13,#091321 45%,#0b1728)}.wrap{max-width:960px;margin:auto;padding:22px 18px 48px}.brand{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:18px}.brand strong{letter-spacing:.04em;font-size:13px}.tag{display:inline-flex;align-items:center;gap:7px;border:1px solid #314766;background:rgba(10,21,39,.7);border-radius:999px;padding:7px 11px;color:#cad7e6;font-size:12px;font-weight:700}.card{background:linear-gradient(180deg,rgba(18,32,54,.96),rgba(12,25,43,.96));border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:0 28px 90px rgba(0,0,0,.28)}h1{font-size:clamp(34px,7vw,64px);line-height:.98;letter-spacing:-.045em;margin:12px 0 18px}h2{font-size:clamp(24px,4vw,36px);line-height:1.12;margin:12px 0 14px}h3{margin:8px 0 12px}p{color:#c5d2e2;line-height:1.58}.accent{background:linear-gradient(90deg,#b794f6,#31d7e5);-webkit-background-clip:text;background-clip:text;color:transparent}.muted{color:var(--muted)}.hidden{display:none!important}.center{text-align:center}.btn,input{width:100%;border-radius:15px;padding:15px 16px;font-size:16px}.btn{border:0;background:linear-gradient(90deg,#7c3aed,#0891b2);color:#fff;font-weight:900;cursor:pointer;box-shadow:0 10px 30px rgba(124,58,237,.22)}.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}input{border:1px solid #35506f;background:#091626;color:white;outline:none}input:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px rgba(139,92,246,.15)}.waiting{padding:32px 8px 10px}.pulse{width:16px;height:16px;border-radius:50%;background:#22d3ee;display:inline-block;box-shadow:0 0 0 0 rgba(34,211,238,.65);animation:pulse 1.6s infinite}@keyframes pulse{70%{box-shadow:0 0 0 18px rgba(34,211,238,0)}100%{box-shadow:0 0 0 0 rgba(34,211,238,0)}}.session{display:flex;justify-content:center;gap:8px;align-items:center;margin:12px 0}.session code{font-size:18px;font-weight:900;letter-spacing:.18em;color:#e9ddff}.progress{height:10px;background:#16273e;border-radius:999px;overflow:hidden;margin:17px 0 24px}.bar{height:100%;background:linear-gradient(90deg,#8b5cf6,#06b6d4);transition:width .35s ease}.topline{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.timer{font-weight:900;font-size:18px;color:#d8e8f7}.timer.danger{color:#fb7185}.options{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.opt{border:1px solid #304663;background:#0b1728;color:#eef5ff;border-radius:17px;padding:16px;text-align:left;cursor:pointer;display:flex;gap:12px;align-items:flex-start;min-height:78px;transition:.18s ease}.opt:hover{transform:translateY(-1px);border-color:#7c3aed}.opt.selected{border-color:#a78bfa;background:#1c2140;box-shadow:inset 0 0 0 1px #8b5cf6}.opt.good{border-color:#22c55e;background:#0e2b22}.opt.bad{border-color:#ef4444;background:#2b141c}.letter{width:32px;height:32px;flex:0 0 32px;border-radius:10px;display:grid;place-items:center;background:#182942;font-weight:900}.validate{margin-top:16px}.notice{margin-top:16px;border-radius:15px;padding:13px 15px;background:#0a1627;border:1px solid #253a56;color:#b9c9db}.notice.ok{border-color:#1f6d47;background:#0d281f;color:#bbf7d0}.notice.warn{border-color:#7b5b16;background:#2a210d;color:#fde68a}.notice.bad{border-color:#7f1d1d;background:#2b1117;color:#fecaca}.casebox{background:#0a1627;border:1px solid #2b4160;border-radius:16px;padding:15px 16px;color:#d7e4f2;margin:12px 0;line-height:1.55}.casegrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.casegrid>div{background:#091421;border:1px solid #273d59;border-radius:15px;padding:14px}.casegrid span{display:block;color:#88a0bb;font-size:12px;margin-bottom:5px}.segments{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.segments div{padding:11px 12px;background:#0a1627;border:1px solid #243a55;border-radius:13px;color:#cbd8e6;font-size:14px}.segments b{display:inline-grid;place-items:center;width:25px;height:25px;border-radius:8px;background:#1d2d48;margin-right:5px}.surprise{border:1px solid #8b5cf6;background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(6,182,212,.08));border-radius:18px;padding:16px;margin:0 0 18px}.scoregrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.scorebox{background:#0a1627;border:1px solid #273c58;border-radius:16px;padding:15px}.scorebox strong{display:block;font-size:27px}.skilllist{display:grid;gap:8px;text-align:left}.skill{display:flex;justify-content:space-between;gap:14px;background:#0a1627;border:1px solid #263c57;border-radius:13px;padding:11px 13px}.goodtxt{color:#4ade80}.warntxt{color:#fbbf24}.badtxt{color:#fb7185}.teacher-link{font-size:12px;color:#7890aa;text-decoration:none;opacity:.45}.teacher-link:hover{opacity:1}.mini{font-size:12px}.lock{display:inline-flex;align-items:center;gap:7px}.spinner{display:inline-block;width:16px;height:16px;border:2px solid #52708f;border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@media(max-width:720px){.wrap{padding:14px 13px 36px}.card{padding:19px;border-radius:21px}.options,.casegrid,.segments,.scoregrid{grid-template-columns:1fr}.brand strong{font-size:11px}.opt{min-height:68px}.teacher-link{display:inline}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><strong>EDULINK QUIZ · SESSION LIVE</strong><a class="teacher-link" href="/teacher.html">Espace enseignant</a></div>
+
+  <section id="join" class="card">
+    <span id="joinTag" class="tag">SESSION LIVE</span>
+    <h1 id="joinTitle">Rejoins le <span class="accent">quiz.</span></h1>
+    <p id="joinDesc">Saisis uniquement ton prénom. Tu seras placé dans la salle d’attente jusqu’au démarrage par l’enseignant.</p>
+    <label id="manualSessionLabel" class="muted mini">Code de session (si fourni)<input id="manualSession" maxlength="6" placeholder="Ex. A2BC3D" style="margin:8px 0 18px;text-transform:uppercase"></label><label for="name" class="muted mini">Ton prénom</label><input id="name" maxlength="40" autocomplete="given-name" placeholder="Ton prénom">
+    <br><br>
+    <button class="btn" id="joinButton">Rejoindre la session</button>
+    <p id="joinError" class="notice bad hidden"></p>
+  </section>
+
+  <section id="waiting" class="card hidden">
+    <div class="center waiting">
+      <span class="pulse"></span>
+      <h2>Vous êtes connecté.</h2>
+      <p id="who"></p>
+      <p class="muted">Attendez que l’enseignant démarre la session.</p>
+      <div class="session"><span class="muted mini">SESSION</span><code id="sessionCode">—</code></div>
+    </div>
+    <div id="caseContext"></div>
+  </section>
+
+  <section id="quiz" class="card hidden">
+    <div id="specialCard" class="surprise hidden"></div>
+    <div class="topline">
+      <span id="qtheme" class="tag"></span>
+      <div><span id="qnum" class="muted"></span> <span id="timer" class="timer"></span></div>
+    </div>
+    <div id="progressWrap" class="progress"><div id="pbar" class="bar"></div></div>
+    <h2 id="question"></h2>
+    <p id="multiHint" class="muted mini hidden">Plusieurs réponses sont possibles.</p>
+    <div id="options" class="options"></div>
+    <button id="validate" class="btn validate" >VALIDER MA RÉPONSE</button>
+    <div id="feedback" class="notice hidden"></div>
+  </section>
+
+  <section id="done" class="card center hidden">
+    <span class="tag">SESSION TERMINÉE</span>
+    <h1><span class="accent">Quiz terminé.</span></h1>
+    <p id="doneName"></p>
+    <div id="scoreGrid" class="scoregrid"></div>
+    <div id="studentDiag"></div>
+    <div id="leaderboard"></div>
+  </section>
+<div id="connection" class="notice warn hidden" role="status" aria-live="polite"></div></div>
+<script type="module" src="/assets/student.js"></script>
+</body>
+</html>
